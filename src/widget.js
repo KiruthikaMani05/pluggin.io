@@ -1,11 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import ShortsWidget from "../screens/ShortsWidget";
+import ShortsWidget from "./screens/ShortsWidget";
 
 class ShortsWidgetElement extends HTMLElement {
   connectedCallback() {
     const userId = this.getAttribute("user-id") || "default";
-
     const mountPoint = document.createElement("div");
     this.appendChild(mountPoint);
 
@@ -14,4 +13,6 @@ class ShortsWidgetElement extends HTMLElement {
   }
 }
 
-customElements.define("shorts-widget", ShortsWidgetElement);
+if (!customElements.get("shorts-widget")) {
+  customElements.define("shorts-widget", ShortsWidgetElement);
+}
