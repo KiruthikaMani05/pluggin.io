@@ -10,3 +10,7 @@ function App() {
 }
 
 export default App;
+
+// https://tagshop.ai/blog/shoppable-videos/
+// https://videowise.com/
+// add Buy Now button to the video
