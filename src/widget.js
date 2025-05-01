@@ -50,7 +50,7 @@ class ShortsWidgetElement extends HTMLElement {
 
       const root = ReactDOM.createRoot(mountPoint);
       root.render(
-        <shorts-widget
+        <ShortsWidget
           userId={userId}
           videos={videos}
           style={style}
