@@ -1,4 +1,12 @@
-const ShortsWidget = ({ userId, videos = [] }) => {
+const ShortsWidget = ({
+  userId,
+  videos = [],
+  style = {},
+  className = "",
+  videoStyle = {},
+}) => {
+  const userVideos = videos.filter((video) => video.userId === userId);
+
   return (
     <div style={{ padding: "20px" }}>
       <h4>Shorts for User: {userId} Pluggin.io</h4>
@@ -22,10 +30,14 @@ const ShortsWidget = ({ userId, videos = [] }) => {
           </div>
         ))}
       </div> */}
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+      {/* <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
         {videos.map((video) => (
           <div key={video.id} style={{ width: "45%" }}>
-            <video src={video.url} controls width="100%" />
+            <video
+              src={video.url}
+              controls
+              style={{ height: " 50%", width: "50%", borderRadius: "1rem" }}
+            />
             <h5>{video.title}</h5>
             <p>{video.description}</p>
             {video.buyLink && (
@@ -45,6 +57,15 @@ const ShortsWidget = ({ userId, videos = [] }) => {
                 🛒 Buy Now
               </a>
             )}
+          </div>
+        ))}
+      </div> */}
+      <div className={`shorts-widget-container ${className}`} style={style}>
+        {userVideos.map((video) => (
+          <div key={video.id} className="shorts-video-card">
+            <video src={video.url} controls style={videoStyle} />
+            <h4>{video.title}</h4>
+            <p>{video.description}</p>
           </div>
         ))}
       </div>
